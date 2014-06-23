@@ -13,6 +13,8 @@ var bodyParser = require('body-parser');
 debug('bowerPath  is %s', bowerPath);
 debug('publicPath is %s', publicPath);
 
+app.set('views', resolve(__dirname, 'views'));
+
 app.use(express.static(bowerPath));
 app.use(express.static(publicPath));
 
