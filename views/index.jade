@@ -1,0 +1,32 @@
+doctype html
+html(ng-app="xinputUi")
+  head
+    title. xinput-ui
+    link(rel="stylesheet", type="text/css", href="/pure/pure.css")
+    link(rel="stylesheet", type="text/css", href="/stylesheets/main.css")
+    script(src="/angular/angular.js")
+    script(src="/scripts/main.js")
+    script(src="/scripts/resources/Devices.js")
+    script(src="/scripts/resources/Properties.js")
+    script(src="/scripts/controllers/DevicesController.js")
+    script(src="/scripts/controllers/DeviceController.js")
+    script(src="/scripts/controllers/PropertyController.js")
+  body
+    h1. xinput-ui
+    h2. Devices
+    div(ng-controller="DevicesController")
+      div(ng-repeat="device in devices", ng-controller="DeviceController")
+        button(ng-click="getProperties()"). {{device.name}}
+        table(
+          class="pure-table pure-table-bordered",
+          ng-if="properties.length"
+        )
+          tr(
+            ng-class="hasError ? 'has-error' : ''",
+            ng-repeat="property in properties",
+            ng-controller="PropertyController"
+          )
+            td. {{property.name}}
+            td
+              div(ng-if="hasError"). {{error}}
+              input(ng-model="property.value", ng-blur="update()")
