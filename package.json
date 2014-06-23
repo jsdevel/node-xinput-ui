@@ -1,7 +1,7 @@
 {
   "name": "xinput-ui",
   "main": "lib/xinput-ui.js",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A UI for the xinput command.",
   "author": "Joseph Spencer",
   "bin": {
